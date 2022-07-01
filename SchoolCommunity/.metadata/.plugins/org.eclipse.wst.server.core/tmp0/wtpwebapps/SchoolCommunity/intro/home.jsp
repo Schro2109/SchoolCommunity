@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String id = session.getAttribute("id").toString();
-	out.print(id);
+	if(session.getAttribute("id")!=null){
+		String id = session.getAttribute("id").toString();
+		out.print(id);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +23,7 @@
 						<h3>👍인기글</h3><a href="#none">더보기 〉</a>
 						<hr>
 						게시판이름, 글제목, 추천, 댓글수
-					</div>ㅇ
+					</div>
 					<div class="free">
 						<h3>⭐자유게시판</h3><a href="#none">더보기 〉</a>
 						<hr>
