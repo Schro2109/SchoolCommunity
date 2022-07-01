@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>분경마당</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container"> 
+		
+		<%@ include file="header.jsp" %>
+		<div class="con">
+			<div class="item">
+				<div class="top">
+					<div class="hot">인기글</div>
+					<div class="free">자유게시판</div>	
+				</div>
+				<div class="bot">
+					<div class="news">공지사항</div>
+					<div class="qna">QNA</div>
+				</div>
+			</div>
+			<%@ include file="aside.jsp" %>
+		</div>
+		<%@include file="footer.jsp" %>
+	</div>
+</body>
+</html>
