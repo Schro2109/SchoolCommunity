@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>분경마당</title>
+<title>분경 학생마당</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
