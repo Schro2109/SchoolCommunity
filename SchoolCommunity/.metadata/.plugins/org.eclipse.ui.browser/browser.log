@@ -12,3 +12,14 @@
 7월 01, 2022 12:49:34.277 NEW SESSION
 7월 01, 2022 12:49:34.277 [9536:9540:0701/124934.274:ERROR:device_event_log_impl.cc(214)] [12:49:34.273] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 7월 01, 2022 12:50:30.223 [9536:9648:0701/125030.223:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+7월 07, 2022 18:25:39.258 NEW SESSION
+7월 07, 2022 18:25:39.258 [7860:6524:0707/182539.256:ERROR:device_event_log_impl.cc(214)] [18:25:39.255] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+7월 07, 2022 18:37:44.26 NEW SESSION
+7월 07, 2022 18:37:44.26 [8864:288:0707/183744.024:ERROR:device_event_log_impl.cc(214)] [18:37:44.024] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 07, 2022 20:06:12.356 [15712:3132:0707/200612.355:ERROR:device_event_log_impl.cc(214)] [20:06:12.354] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 07, 2022 20:06:38.927 [1244:15840:0707/200638.927:ERROR:device_event_log_impl.cc(214)] [20:06:38.926] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 07, 2022 20:52:48.804 [13484:18200:0707/205248.804:ERROR:device_event_log_impl.cc(214)] [20:52:48.804] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 07, 2022 21:06:05.699 [16372:6348:0707/210605.698:ERROR:device_event_log_impl.cc(214)] [21:06:05.698] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 07, 2022 21:19:17.51 [16372:6348:0707/211917.050:ERROR:device_event_log_impl.cc(214)] [21:19:17.050] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.

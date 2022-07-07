@@ -70,10 +70,6 @@ header > div{
 	float: left;
 	margin: 0;
 }
-.hot > a{
-	float: right;
-	font-size: 0.9em;
-}
 .hot > hr{
 	margin-top: 30px;
 	width: 520px;
@@ -86,10 +82,6 @@ header > div{
 .free > h3{
 	float: left;
 	margin: 0;
-}
-.free > a{
-	float: right;
-	font-size: 0.9em;
 }
 .free > hr{
 	margin-top: 30px;
@@ -104,10 +96,6 @@ header > div{
 	float: left;
 	margin: 0;s
 }
-.news > a{
-	float: right;
-	font-size: 0.9em;
-}
 .news > hr{
 	margin-top: 30px;
 	width: 520px;
@@ -121,13 +109,46 @@ header > div{
 	float: left;
 	margin: 0;
 }
-.qna > a{
-	float: right;
-	font-size: 0.9em;
-}
 .qna > hr{
 	margin-top: 30px;
 	width: 520px;
+}
+.homeBoard{
+	margin:5px;
+	padding-left: 0;
+	list-style: none;
+}
+.homeBoard > li{
+	width:100%;
+	height: 20px;
+	padding:5px;
+	border-bottom: 1px solid gray;
+}
+.homeBoard span{
+	padding: 0 5px;
+	float:left;
+	box-sizing: border-box;
+}
+.homeBoard #ptype{
+	width:15%;
+}
+.homeBoard #title,#writer{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.homeBoard #title{
+	width:50%;
+}
+.homeBoard #writer{
+	width:20%;
+}
+.homeBoard #commentCount,#suggestion{
+	width:7.5%;
+}
+
+.homeBoard a > span{
+	font-size: 0.8em;
 }
 .aside{
     float: right;
