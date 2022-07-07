@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+body{
+	background-color: #fff;
+	color: #333;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+.container{
+	width: 100%;
+}
+.h-line,
+.f-line{
+	background-color: rgb(129, 178, 250);
+	width: 100%;
+	height: 100px;
+}
+header{
+	height: 100px;
+	width: 1500px;
+	margin: 0 auto;
+}
+header > div{
+	height: 100px;
+}
+.logo{
+	width: 200px;
+	float: left;
+}
+.nav{
+	width: 1300px;
+    float: right;
+}
+.nav a{
+	float: left;
+	margin: 15px;
+	color: white;
+}
+.con{
+	width: 1500px;
+	height: 800px;
+	margin: 0 auto;
+}
+.top{
+	height: 400px;	
+}
+.bot{
+	height: 200px;	
+}
+.top > div{
+	float: left;
+}
+.bot > div{
+	float: left;
+}
+.item{
+	width: 1100px;
+	height: 800px;
+    float: left;
+}
+.hot{
+	width: 510px;
+	height: 360px;
+	padding: 20px;
+}
+.hot > h3{
+	float: left;
+	margin: 0;
+}
+.hot > hr{
+	margin-top: 30px;
+	width: 520px;
+}
+.free{
+	width: 510px;
+	height: 360px;
+	padding: 20px;
+}
+.free > h3{
+	float: left;
+	margin: 0;
+}
+.free > hr{
+	margin-top: 30px;
+	width: 520px;
+}
+.news{
+	width: 510px;
+	height: 240;
+	padding: 20px;
+}
+.news > h3{
+	float: left;
+	margin: 0;s
+}
+.news > hr{
+	margin-top: 30px;
+	width: 520px;
+}
+.qna{
+	width: 510px;
+	height: 240;
+	padding: 20px;
+}
+.qna > h3{
+	float: left;
+	margin: 0;
+}
+.qna > hr{
+	margin-top: 30px;
+	width: 520px;
+}
+.homeBoard{
+	margin:5px;
+	padding-left: 0;
+	list-style: none;
+}
+.homeBoard > li{
+	padding:3px;
+	border-bottom: 1px solid gray;
+}
+.homeBoard span{
+	padding: 0 5px;
+}
+.homeBoard #ptype{
+	width:25%;
+}
+.homeBoard #title{
+	width:55%;
+}
+.homeBoard #writer,#commentCount,#suggestion{
+	float:right;
+}
+.homeBoard #writer{
+	width:10%;
+}
+.homeBoard #commentCount,#suggestion{
+	width:5%;
+}
+.homeBoard a > span{
+	font-size: 0.8em;
+}
+.aside{
+    float: right;
+    width: 400px;
+    height: 800px;
+}
+
+.login{
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 360px;
+    height: 160px;
+	margin: 20px;
+}
+.login > form > button{
+	height:70px;
+	width:70px;
+}
+.login h3{
+	margin: 8px;
+}
+.loginInput{
+	float:left;
+}
+.loginInput > input{
+	border: 0;
+	border-bottom: 1px solid rgb(168, 168, 168);
+	width: 220px;
+	margin: 5px 20px;
+	padding: 4px;
+	font-size: 14px;
+}
+.loginBtn{
+	float:left;
+}
+.account-menu{
+	clear: left;
+}
+.write{
+	width: 400px;
+    height: 80px;
+    background-color: #eeeeee;
+}
+.schedule{
+	width: 400px;
+    height: 300px;
+    background-color: #ffffff;
+    margin:auto;
+    text-align: center;
+}
+.schedule > iframe{
+	width:360px;
+	height:510px;
+	overflow:hidden;
+	border: none;
+	background-color: #ffffff;
+}
+.lunchFrame{
+	width:95%;
+	height:95%;
+}
