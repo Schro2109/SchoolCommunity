@@ -94,7 +94,7 @@ header > div{
 }
 .news > h3{
 	float: left;
-	margin: 0;s
+	margin: 0;
 }
 .news > hr{
 	margin-top: 30px;
@@ -102,7 +102,7 @@ header > div{
 }
 .qna{
 	width: 510px;
-	height: 240;
+	height: 240px;
 	padding: 20px;
 }
 .qna > h3{
@@ -125,9 +125,11 @@ header > div{
 	border-bottom: 1px solid gray;
 }
 .homeBoard span{
+	font-size: 0.8em;
 	padding: 0 5px;
 	float:left;
 	box-sizing: border-box;
+	text-align: center;
 }
 .homeBoard #ptype{
 	width:15%;
@@ -140,15 +142,18 @@ header > div{
 .homeBoard #title{
 	width:50%;
 }
+.homeBoard > li:not(.division) #title{
+	text-align:left;
+}
 .homeBoard #writer{
 	width:20%;
 }
 .homeBoard #commentCount,#suggestion{
 	width:7.5%;
 }
-
-.homeBoard a > span{
-	font-size: 0.8em;
+.homeBoard > li.division > span{
+	text-align: center;
+	font-weight: bold;
 }
 .aside{
     float: right;

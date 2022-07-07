@@ -3,8 +3,11 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.conn.JDBCConnection;
+import com.vo.HomePostsVO;
 import com.vo.LoginVO;
 
 public class SchoolDAO {
@@ -16,7 +19,7 @@ public class SchoolDAO {
 		String id = null;
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "SELECT ID FROM ACCOUNT WHERE ID=? AND PASSWORD=?";
+			sql = "SELECT ID FROM ACCOUNT_TBL WHERE ID=? AND PASSWORD=?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, vo.getId());
 			stmt.setString(2, vo.getPw());
@@ -25,10 +28,70 @@ public class SchoolDAO {
 				id = rs.getString("ID");
 			}
 		} catch (Exception e) {
+			System.out.println("로그인 실패");
 			e.printStackTrace();
 		} finally {
 			JDBCConnection.close(rs, stmt, conn);
 		}
+		System.out.println("로그인 성공");
 		return id;
+	}
+	public ArrayList<HomePostsVO> getHomeHotPosts(){
+		ArrayList<HomePostsVO> list = null;
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT DECODE(PTYPE, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') PTYPE,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT\r\n" + 
+					"FROM (SELECT PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
+					"FROM POST_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE)\r\n" + 
+					"GROUP BY PTYPE,TITLE,NAME,SUGGESTION\r\n"	+
+					"ORDER BY SUGGESTION DESC";
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			list = new ArrayList<HomePostsVO>();
+			while(rs.next()) {
+				HomePostsVO vo = new HomePostsVO();
+				vo.setPtype(rs.getString("PTYPE"));
+				vo.setTitle(rs.getString("TITLE"));
+				vo.setName(rs.getString("NAME"));
+				vo.setSuggestion(rs.getString("SUGGESTION"));
+				vo.setCommentCount(rs.getString("COMMENTCOUNT"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return list;
+	}
+	public ArrayList<HomePostsVO> getHomePosts(String ptype){
+ArrayList<HomePostsVO> list = null;
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT DECODE(PTYPE, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') PTYPE,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT\r\n" + 
+					"FROM (SELECT PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
+					"FROM POST_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID) WHERE PTYPE=?) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE)\r\n" + 
+					"GROUP BY PTYPE,TITLE,NAME,SUGGESTION";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, ptype);
+			rs = stmt.executeQuery();
+			list = new ArrayList<HomePostsVO>();
+			while(rs.next()) {
+				HomePostsVO vo = new HomePostsVO();
+				vo.setPtype(rs.getString("PTYPE"));
+				vo.setTitle(rs.getString("TITLE"));
+				vo.setName(rs.getString("NAME"));
+				vo.setSuggestion(rs.getString("SUGGESTION"));
+				vo.setCommentCount(rs.getString("COMMENTCOUNT"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return list;
 	}
 }

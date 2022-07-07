@@ -10,6 +10,6 @@
 		<button type="submit">로그인</button>
 	</form>
 	<div class="account-menu">
-		<a href="#none">비밀번호 찾기→</a><a href="#none">로그인</a>
+		<a href="#none">비밀번호 찾기</a>
 	</div>
 </div>

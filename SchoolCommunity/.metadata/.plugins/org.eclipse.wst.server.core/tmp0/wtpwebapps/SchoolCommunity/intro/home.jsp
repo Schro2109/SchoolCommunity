@@ -1,10 +1,18 @@
+<%@page import="com.vo.HomePostsVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.SchoolDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	if (session.getAttribute("id") != null) {
 	String id = session.getAttribute("id").toString();
 	out.print(id);
-}
+	}
+	SchoolDAO dao = new SchoolDAO();
+	ArrayList<HomePostsVO> hotPostsList = dao.getHomeHotPosts();
+	ArrayList<HomePostsVO> newsPostsList = dao.getHomePosts("NEWS");
+	ArrayList<HomePostsVO> freePostsList = dao.getHomePosts("FREE");
+	ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 %>
 <!DOCTYPE html>
 <html>
@@ -24,8 +32,10 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li><a href="#none"><span id="ptype">게시판이름</span><span id="title">글제목sdfsdfsdfsdfsdfsdsdfsdsdfsdsdfsdfsdf</span><span id="writer">작성자라우라우</span><span id="suggestion">999+</span><span id="commentCount">99+</span></a></li>
-							<li><a href="#none"><span id="ptype">게시판이름</span><span id="title">글제목</span><span id="writer">작성자라fsdsdfsdf우라우</span><span id="suggestion">999+</span><span id="commentCount">99+</span></a></li>
+						<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+						<%for(HomePostsVO vo : hotPostsList){ %>
+							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
+						<%} %>
 						</ul>
 					</div>
 					<div class="free">
@@ -33,7 +43,10 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li><a href="#none"><span id="ptype">게시판이름</span><span id="title">글제목</span><span id="suggestion">999+</span><span id="commentCount">99+</span></a></li>
+							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%for(HomePostsVO vo : freePostsList){ %>
+							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
+						<%} %>
 						</ul>
 					</div>
 				</div>
@@ -43,7 +56,10 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li><a href="#none"><span id="ptype">게시판이름</span><span id="title">글제목</span><span id="suggestion">999+</span><span id="commentCount">99+</span></a></li>
+							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%for(HomePostsVO vo : newsPostsList){ %>
+							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
+						<%} %>
 						</ul>
 					</div>
 					<div class="qna">
@@ -51,7 +67,10 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li><a href="#none"><span id="ptype">게시판이름</span><span id="title">글제목</span><span id="suggestion">999+</span><span id="commentCount">99+</span></a></li>
+							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%for(HomePostsVO vo : quesPostsList){ %>
+							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
+						<%} %>
 						</ul>
 					</div>
 				</div>
