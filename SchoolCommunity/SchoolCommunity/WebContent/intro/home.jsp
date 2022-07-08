@@ -7,16 +7,17 @@
 	if (session.getAttribute("id") != null) {
 	String id = session.getAttribute("id").toString();
 	out.print(id);
-	}
-	SchoolDAO dao = new SchoolDAO();
-	ArrayList<HomePostsVO> hotPostsList = dao.getHomeHotPosts();
-	ArrayList<HomePostsVO> newsPostsList = dao.getHomePosts("NEWS");
-	ArrayList<HomePostsVO> freePostsList = dao.getHomePosts("FREE");
-	ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
+}
+SchoolDAO dao = new SchoolDAO();
+ArrayList<HomePostsVO> hotPostsList = dao.getHomeHotPosts();
+ArrayList<HomePostsVO> newsPostsList = dao.getHomePosts("NEWS");
+ArrayList<HomePostsVO> freePostsList = dao.getHomePosts("FREE");
+ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 %>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>분경 학생마당</title>
 <link rel="stylesheet" href="style.css">
@@ -32,10 +33,20 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-						<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
-						<%for(HomePostsVO vo : hotPostsList){ %>
-							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
-						<%} %>
+							<li class="division"><span id="ptype">게시판</span><span
+								id="title">제목</span><span id="writer">작성자</span><span
+								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
+							<%
+								for (HomePostsVO vo : hotPostsList) {
+							%>
+							<li><span id="ptype"><%=vo.getPtype()%></span><span
+								id="title"><a
+									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
+								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
+								id="commentCount"><%=vo.getCommentCount()%></span></li>
+							<%
+								}
+							%>
 						</ul>
 					</div>
 					<div class="free">
@@ -43,10 +54,20 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
-							<%for(HomePostsVO vo : freePostsList){ %>
-							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
-						<%} %>
+							<li class="division"><span id="ptype">게시판</span><span
+								id="title">제목</span><span id="writer">작성자</span><span
+								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%
+								for (HomePostsVO vo : freePostsList) {
+							%>
+							<li><span id="ptype"><%=vo.getPtype()%></span><span
+								id="title"><a
+									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
+								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
+								id="commentCount"><%=vo.getCommentCount()%></span></li>
+							<%
+								}
+							%>
 						</ul>
 					</div>
 				</div>
@@ -56,10 +77,20 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
-							<%for(HomePostsVO vo : newsPostsList){ %>
-							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
-						<%} %>
+							<li class="division"><span id="ptype">게시판</span><span
+								id="title">제목</span><span id="writer">작성자</span><span
+								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%
+								for (HomePostsVO vo : newsPostsList) {
+							%>
+							<li><span id="ptype"><%=vo.getPtype()%></span><span
+								id="title"><a
+									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
+								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
+								id="commentCount"><%=vo.getCommentCount()%></span></li>
+							<%
+								}
+							%>
 						</ul>
 					</div>
 					<div class="qna">
@@ -67,10 +98,18 @@
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span id="title">제목</span><span id="writer">작성자</span><span id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
-							<%for(HomePostsVO vo : quesPostsList){ %>
-							<li><a href="#none"><span id="ptype"><%=vo.getPtype() %></span><span id="title"><%=vo.getTitle()%></span><span id="writer"><%=vo.getName() %></span><span id="suggestion"><%=vo.getSuggestion() %></span><span id="commentCount"><%=vo.getCommentCount() %></span></a></li>
-						<%} %>
+							<li class="division"><span id="ptype">게시판</span><span
+								id="title">제목</span><span id="writer">작성자</span><span
+								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+							<%
+								for (HomePostsVO vo : quesPostsList) {
+							%>
+							<li><span id="ptype"><%=vo.getPtype()%></span><span
+								id="title"><a
+									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
+								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
+								id="commentCount"><%=vo.getCommentCount() %></span></li>
+							<%} %>
 						</ul>
 					</div>
 				</div>

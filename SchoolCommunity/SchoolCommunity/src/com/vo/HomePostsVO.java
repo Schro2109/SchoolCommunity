@@ -1,16 +1,24 @@
 package com.vo;
 
 public class HomePostsVO {
-	private String ptype;
+	private int pCode;
+	private String pType;
 	private String title;
 	private String name;
 	private String suggestion;
 	private String commentCount;
-	public String getPtype() {
-		return ptype;
+	
+	public int getpCode() {
+		return pCode;
 	}
-	public void setPtype(String ptype) {
-		this.ptype = ptype;
+	public void setpCode(int pCode) {
+		this.pCode = pCode;
+	}
+	public String getpType() {
+		return pType;
+	}
+	public void setpType(String pType) {
+		this.pType = pType;
 	}
 	public String getTitle() {
 		return title;
@@ -38,8 +46,7 @@ public class HomePostsVO {
 	}
 	@Override
 	public String toString() {
-		return "HomePostsVO [ptype=" + ptype + ", title=" + title + ", name=" + name + ", suggestion=" + suggestion
-				+ ", commentCount=" + commentCount + "]";
+		return "HomePostsVO [pCode=" + pCode + ", pType=" + pType + ", title=" + title + ", name=" + name
+				+ ", suggestion=" + suggestion + ", commentCount=" + commentCount + "]";
 	}
-	
 }
