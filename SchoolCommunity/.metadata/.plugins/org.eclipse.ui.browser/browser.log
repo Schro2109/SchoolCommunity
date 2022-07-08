@@ -26,3 +26,9 @@
 7월 08, 2022 09:47:19.892 [1108:7244:0708/094719.892:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 7월 08, 2022 10:22:06.749 [5504:8512:0708/102206.748:ERROR:device_event_log_impl.cc(214)] [10:22:06.747] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 7월 08, 2022 10:23:04.693 [5504:4840:0708/102304.693:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 08, 2022 10:56:32.843 [5504:8512:0708/105632.843:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+7월 08, 2022 11:02:33.24 [9912:7112:0708/110233.024:ERROR:device_event_log_impl.cc(214)] [11:02:33.024] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 08, 2022 11:03:29.934 [9912:1800:0708/110329.934:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 08, 2022 11:05:08.444 [8988:7940:0708/110508.444:ERROR:device_event_log_impl.cc(214)] [11:05:08.444] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 08, 2022 11:06:06.274 [8988:1664:0708/110606.274:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 08, 2022 11:06:13.514 [8988:7940:0708/110613.514:ERROR:sharing_service.cc(252)] Device un-registration failed with fatal error

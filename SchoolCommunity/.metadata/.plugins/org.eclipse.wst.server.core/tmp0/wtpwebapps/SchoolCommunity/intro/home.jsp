@@ -33,13 +33,13 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span
+							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
 							<%
 								for (HomePostsVO vo : hotPostsList) {
 							%>
-							<li><span id="ptype"><%=vo.getPtype()%></span><span
+							<li><span id="pType"><%=vo.getpType()%></span><span
 								id="title"><a
 									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
 								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
@@ -54,13 +54,13 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span
+							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
 							<%
 								for (HomePostsVO vo : freePostsList) {
 							%>
-							<li><span id="ptype"><%=vo.getPtype()%></span><span
+							<li><span id="pType"><%=vo.getpType()%></span><span
 								id="title"><a
 									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
 								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
@@ -77,13 +77,13 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span
+							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
 							<%
 								for (HomePostsVO vo : newsPostsList) {
 							%>
-							<li><span id="ptype"><%=vo.getPtype()%></span><span
+							<li><span id="pType"><%=vo.getpType()%></span><span
 								id="title"><a
 									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
 								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
@@ -98,13 +98,13 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<a href="#none">더보기 〉</a>
 						<hr>
 						<ul class="homeBoard">
-							<li class="division"><span id="ptype">게시판</span><span
+							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
 							<%
 								for (HomePostsVO vo : quesPostsList) {
 							%>
-							<li><span id="ptype"><%=vo.getPtype()%></span><span
+							<li><span id="pType"><%=vo.getpType()%></span><span
 								id="title"><a
 									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
 								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span

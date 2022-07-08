@@ -134,7 +134,7 @@ header > div{
 	box-sizing: border-box;
 	text-align: center;
 }
-.homeBoard #ptype{
+.homeBoard #pType{
 	width:15%;
 }
 .homeBoard #title,#writer{

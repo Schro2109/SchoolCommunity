@@ -6,5 +6,12 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.vo.LoginVO"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.dbcp.dbcp2.Jdbc41Bridge"/>
+<fullyQualifiedTypeName name="com.dao.SchoolDAO"/>
+<fullyQualifiedTypeName name="com.vo.HomePostsVO"/>
+<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+<fullyQualifiedTypeName name="com.vo.PostContentsVO"/>
 <fullyQualifiedTypeName name="com.conn.JDBCConnection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.vo.PostCommentVO"/>
+<fullyQualifiedTypeName name="com.vo.PostReplyVO"/>
 </qualifiedTypeNameHistroy>

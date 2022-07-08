@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.annotation.PostConstruct;
-
 import com.conn.JDBCConnection;
 import com.vo.HomePostsVO;
 import com.vo.LoginVO;
+import com.vo.PostCommentVO;
 import com.vo.PostContentsVO;
+import com.vo.PostReplyVO;
 
 public class SchoolDAO {
 	private Connection conn = null;
@@ -106,11 +106,18 @@ ArrayList<HomePostsVO> list = null;
 		PostContentsVO vo = null;
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "";
+			sql = "SELECT PTYPE, TITLE, WRITER, CONTENTS\r\n" + 
+					"FROM POST_TBL\r\n" + 
+					"WHERE PCODE=?";
 			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, pCode);
 			rs = stmt.executeQuery();
-			while(rs.next()) {
-				
+			vo = new PostContentsVO();
+			if(rs.next()) {
+				vo.setpType(rs.getString("PTYPE"));
+				vo.setTitle(rs.getString("TITLE"));
+				vo.setName(rs.getString("WRITER"));
+				vo.setContents(rs.getString("CONTENTS"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,6 +125,56 @@ ArrayList<HomePostsVO> list = null;
 			JDBCConnection.close(rs, stmt, conn);
 		}
 		return vo;
+	}
+	public ArrayList<PostCommentVO> getPostComments(int pCode){
+		ArrayList<PostCommentVO> list = null;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT CMCODE, CONTENTS, WRITER, NAME\r\n" + 
+					"FROM COMMENT_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)\r\n" + 
+					"WHERE PCODE = ? ORDER BY CMCODE DESC";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, pCode);
+			rs = stmt.executeQuery();
+			list = new ArrayList<PostCommentVO>();
+			while(rs.next()) {
+				PostCommentVO vo = new PostCommentVO();
+				vo.setCmCode(rs.getInt("CMCODE"));
+				vo.setContents(rs.getString("CONTENTS"));
+				vo.setName(rs.getString("NAME"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return list;
+	}
+	public ArrayList<PostReplyVO> getPostReply(int cmCode){
+		ArrayList<PostReplyVO> list = null;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT RECODE, CONTENTS, WRITER, NAME\r\n" + 
+					"FROM REPLY_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)\r\n" + 
+					"WHERE CMCODE = ? ORDER BY RECODE";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, cmCode);
+			rs = stmt.executeQuery();
+			list = new ArrayList<PostReplyVO>();
+			while(rs.next()) {
+				PostReplyVO vo = new PostReplyVO();
+				vo.setReCode(rs.getInt("RECODE"));
+				vo.setContents(rs.getString("CONTENTS"));
+				vo.setName(rs.getString("NAME"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return list;
 	}
 	
 	

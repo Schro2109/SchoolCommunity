@@ -1,13 +1,10 @@
 package com.vo;
 
-import java.util.ArrayList;
-
 public class PostContentsVO {
 	private String pType;
 	private String title;
 	private String name;
 	private String contents;
-	private ArrayList<ArrayList<String>> commentsAndReply;
 	public String getpType() {
 		return pType;
 	}
@@ -32,16 +29,11 @@ public class PostContentsVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public ArrayList<ArrayList<String>> getCommentsAndReply() {
-		return commentsAndReply;
-	}
-	public void setCommentsAndReply(ArrayList<ArrayList<String>> commentsAndReply) {
-		this.commentsAndReply = commentsAndReply;
-	}
 	@Override
 	public String toString() {
 		return "PostContentsVO [pType=" + pType + ", title=" + title + ", name=" + name + ", contents=" + contents
-				+ ", commentsAndReply=" + commentsAndReply + "]";
+				+ "]";
 	}
+
 	
 }
