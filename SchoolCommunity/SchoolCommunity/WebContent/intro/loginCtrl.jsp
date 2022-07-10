@@ -22,7 +22,8 @@
 	<%if(check){%>
 		window.alert("로그인이 완료되었습니다.");
 	<%}else{%>
-		window.alert("아이디와 비밀번호를 다시 확인해주세요.<%=login%>")
+		window.alert("아이디와 비밀번호를 다시 확인해주세요.");
 	<%}%>
-	history.back()
+	
+	location.href=document.referrer;
 </script>

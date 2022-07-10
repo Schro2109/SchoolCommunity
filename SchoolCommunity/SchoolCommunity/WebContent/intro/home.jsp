@@ -4,11 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	if (session.getAttribute("id") != null) {
-	String id = session.getAttribute("id").toString();
-	out.print(id);
-}
-SchoolDAO dao = new SchoolDAO();
+	SchoolDAO dao = new SchoolDAO();
 ArrayList<HomePostsVO> hotPostsList = dao.getHomeHotPosts();
 ArrayList<HomePostsVO> newsPostsList = dao.getHomePosts("NEWS");
 ArrayList<HomePostsVO> freePostsList = dao.getHomePosts("FREE");
@@ -17,7 +13,10 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 <!DOCTYPE html>
 <html>
 <head>
+<style>
 
+
+</style>
 <meta charset="UTF-8">
 <title>분경 학생마당</title>
 <link rel="stylesheet" href="style.css">
@@ -56,7 +55,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<ul class="homeBoard">
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
-								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
 							<%
 								for (HomePostsVO vo : freePostsList) {
 							%>
@@ -79,7 +78,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<ul class="homeBoard">
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
-								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
 							<%
 								for (HomePostsVO vo : newsPostsList) {
 							%>
@@ -100,7 +99,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 						<ul class="homeBoard">
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
-								id="suggestion">추천</span><span id="commentCount">댓글</span></a></li>
+								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
 							<%
 								for (HomePostsVO vo : quesPostsList) {
 							%>
@@ -108,8 +107,10 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 								id="title"><a
 									href="../view/postView.jsp?pCode=<%=vo.getpCode()%>"><%=vo.getTitle()%></a></span><span
 								id="writer"><%=vo.getName()%></span><span id="suggestion"><%=vo.getSuggestion()%></span><span
-								id="commentCount"><%=vo.getCommentCount() %></span></li>
-							<%} %>
+								id="commentCount"><%=vo.getCommentCount()%></span></li>
+							<%
+								}
+							%>
 						</ul>
 					</div>
 				</div>

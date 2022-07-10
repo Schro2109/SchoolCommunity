@@ -163,13 +163,31 @@ header > div{
     width: 400px;
     height: 800px;
 }
-
-.login{
-	border: 1px solid #000;
+.login, .logout{
+	padding: 3px;
+	border: 1px solid rgb(168, 168, 168);
 	border-radius: 5px;
-	width: 360px;
-    height: 160px;
-	margin: 20px;
+	box-sizing:border-box;
+	width:360px;
+	height:160px;
+	margin:20px;
+}
+.login a:hover, .logout a:hover{
+	text-decoration: underline;
+} 
+.logout > h3{
+	margin:8px;
+}
+.logout .account-menu > h3{
+	margin: 5px 20px;
+}
+.logout .account-menu{
+	float:left;
+}
+.logout button{
+	height:70px;
+	width:70px;
+	float:left;
 }
 .login > form > button{
 	height:70px;
@@ -192,13 +210,26 @@ header > div{
 .loginBtn{
 	float:left;
 }
-.account-menu{
-	clear: left;
+.login .account-menu{
+	/* clear: left; */
+	margin:5px 20px;
+}
+.login .account-menu > #register{
+	float:right;
 }
 .write{
-	width: 400px;
-    height: 80px;
-    background-color: #eeeeee;
+	border-radius: 15px;
+	margin: 0 20px 5px 20px;
+	padding-top:7px;
+	box-sizing: border-box;
+	width: 360px;
+    height: 60px;
+    background-color: rgb(129, 178, 250);
+    text-align:center;
+}
+.write > h1{
+	color:#fff;
+	margin:0;
 }
 .schedule{
 	width: 400px;
@@ -218,4 +249,17 @@ header > div{
 	width:95%;
 	height:95%;
 	border: none;
+}
+.postTitle{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:100px;
+	line-height:0.9em;
+	background-color: turquoise;
+	padding:5px;
+}
+.postTitle h2{
+	margin:5px 0;
+	line-height: 1.3em;
 }

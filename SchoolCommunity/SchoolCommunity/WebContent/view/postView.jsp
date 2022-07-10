@@ -24,25 +24,30 @@ ArrayList<PostCommentVO> list = dao.getPostComments(pCode);
 		<%@ include file="../intro/header.jsp"%>
 		<div class="con">
 			<div class="item">
+				<div class="postTitle">
 				<%=vo.getpType()%>
-				<%=vo.getTitle()%>
-				<%=vo.getName()%>
-				<%=vo.getContents()%>
-				<%
-					for (PostCommentVO cvo : list) {
-				%>
-				<ul><%=cvo.getCmCode()%><%=cvo.getContents()%><%=cvo.getName()%>
+					<h2><%=vo.getTitle()%></h2>
+					<%=vo.getName()%>
+				</div>
+				<div class="postContents"><%=vo.getContents()%></div>
+				<div class="commentBox">
 					<%
-						ArrayList<PostReplyVO> rList = dao.getPostReply(cvo.getCmCode());
-						for(PostReplyVO rvo : rList){%>
-							<li><%=rvo.getReCode()%><%=rvo.getContents()%><%=rvo.getName()%></li>		
-						<%}
+						for (PostCommentVO cvo : list) {
 					%>
-					
-				</ul>
-				<%
-					}
-				%>
+					<ul><%=cvo.getCmCode()%><%=cvo.getContents()%><%=cvo.getName()%>
+						<%
+							ArrayList<PostReplyVO> rList = dao.getPostReply(cvo.getCmCode());
+						for (PostReplyVO rvo : rList) {
+						%>
+						<li><%=rvo.getReCode()%><%=rvo.getContents()%><%=rvo.getName()%></li>
+						<%
+							}
+						%>
+					</ul>
+					<%
+						}
+					%>
+				</div>
 			</div>
 			<%@ include file="../intro/aside.jsp"%>
 		</div>
