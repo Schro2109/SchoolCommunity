@@ -13,10 +13,6 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-
-</style>
 <meta charset="UTF-8">
 <title>분경 학생마당</title>
 <link rel="stylesheet" href="style.css">
