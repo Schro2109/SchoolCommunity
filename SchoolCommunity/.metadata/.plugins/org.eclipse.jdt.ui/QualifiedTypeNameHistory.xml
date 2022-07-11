@@ -10,8 +10,9 @@
 <fullyQualifiedTypeName name="com.vo.HomePostsVO"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="com.vo.PostContentsVO"/>
-<fullyQualifiedTypeName name="com.conn.JDBCConnection"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.vo.PostCommentVO"/>
 <fullyQualifiedTypeName name="com.vo.PostReplyVO"/>
+<fullyQualifiedTypeName name="com.vo.PostVO"/>
+<fullyQualifiedTypeName name="com.conn.JDBCConnection"/>
 </qualifiedTypeNameHistroy>

@@ -3,7 +3,12 @@
 <link rel="stylesheet" href="../intro/asideStyle.css">
 <script>
 function modalOpen(){
+	<%if(session.getAttribute("id")!=null){%>
 	document.getElementById('writeModal').setAttribute("class","active");
+	<%}else{%>
+		alert("로그인이 필요한 메뉴입니다.");
+	<%}%>
+	
 }
 function modalClose(){
 	document.getElementById('writeModal').removeAttribute("class");

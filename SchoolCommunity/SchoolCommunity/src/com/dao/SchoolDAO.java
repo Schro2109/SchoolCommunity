@@ -3,6 +3,7 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.conn.JDBCConnection;
@@ -11,12 +12,14 @@ import com.vo.LoginVO;
 import com.vo.PostCommentVO;
 import com.vo.PostContentsVO;
 import com.vo.PostReplyVO;
+import com.vo.PostVO;
 
 public class SchoolDAO {
 	private Connection conn = null;
 	private String sql = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
+	
 	public String login(LoginVO vo) {
 		String id = null;
 		try {
@@ -30,12 +33,10 @@ public class SchoolDAO {
 				id = rs.getString("ID");
 			}
 		} catch (Exception e) {
-			System.out.println("로그인 실패");
 			e.printStackTrace();
 		} finally {
 			JDBCConnection.close(rs, stmt, conn);
 		}
-		System.out.println("로그인 성공");
 		return id;
 	}
 	public ArrayList<HomePostsVO> getHomeHotPosts(){
@@ -175,6 +176,52 @@ ArrayList<HomePostsVO> list = null;
 		}
 		return list;
 	}
-	
+	private int getMaxPcode() {
+		int pcode = 0;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT NVL2(MAX(PCODE),MAX(PCODE)+1,1) PCODE\r\n" + 
+					"FROM POST_TBL";
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				pcode = rs.getInt("PCODE");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return pcode;
+	}
+	public int addPost(PostVO vo) {
+		int pcode = 0;
+		int maxPcode = getMaxPcode();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "INSERT INTO POST_TBL VALUES(?,?,?,?,?,0)";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, maxPcode);
+			stmt.setString(2, vo.getPtype());
+			stmt.setString(3, vo.getWriter());
+			stmt.setString(4, vo.getTitle());
+			stmt.setString(5, vo.getContents());
+			pcode = stmt.executeUpdate();
+			if(pcode > 0) {
+				pcode = maxPcode;
+				conn.commit();
+			}
+		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return pcode;
+	}
 	
 }
