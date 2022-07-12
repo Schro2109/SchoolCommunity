@@ -19,7 +19,24 @@ public class SchoolDAO {
 	private String sql = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
-	
+	public String getUserName(String id) {
+		String name = null;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "SELECT NAME FROM ACCOUNT_TBL WHERE ID=?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				name = rs.getString("NAME");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCConnection.close(rs, stmt, conn);
+		}
+		return name;
+	}
 	public String login(LoginVO vo) {
 		String id = null;
 		try {
@@ -51,7 +68,7 @@ public class SchoolDAO {
 					"GROUP BY X.PCODE,PTYPE,WRITER,TITLE) LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE) \r\n" + 
 					"WHERE ROWNUM <= 8\r\n" + 
 					"GROUP BY X.PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
-					"ORDER BY SUGGESTION DESC";
+					"ORDER BY SUGGESTION DESC, PCODE DESC";
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			list = new ArrayList<HomePostsVO>();
@@ -203,7 +220,7 @@ ArrayList<HomePostsVO> list = null;
 		int maxPcode = getMaxPcode();
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "INSERT INTO POST_TBL VALUES(?,?,?,?,?,0)";
+			sql = "INSERT INTO POST_TBL VALUES(?,?,?,?,?)";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, maxPcode);
 			stmt.setString(2, vo.getPtype());

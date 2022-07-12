@@ -84,3 +84,28 @@
 7월 11, 2022 10:36:44.459 NEW SESSION
 7월 11, 2022 10:36:44.459 [6936:4816:0711/103644.456:ERROR:device_event_log_impl.cc(214)] [10:36:44.456] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 7월 11, 2022 10:37:41.367 [6936:5508:0711/103741.366:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+7월 12, 2022 15:17:03.146 NEW SESSION
+7월 12, 2022 15:17:03.146 [5776:2604:0712/151703.144:ERROR:device_event_log_impl.cc(214)] [15:17:03.144] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 12, 2022 15:18:00.995 [5776:6304:0712/151800.995:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 12, 2022 15:35:14.856 [10456:4236:0712/153514.856:ERROR:device_event_log_impl.cc(214)] [15:35:14.855] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 12, 2022 15:36:12.699 [10456:8124:0712/153612.698:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 12, 2022 15:50:42.761 [10456:4236:0712/155042.761:ERROR:CONSOLE(1)] "TypeError: Cannot read properties of undefined (reading 'indexOf') TypeError: Cannot read properties of undefined (reading 'indexOf')
+7월 12, 2022 15:50:42.762     at Hn.contentType (devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js:1:282401)
+7월 12, 2022 15:50:42.762     at new ve (devtools://devtools/bundled/devtools-frontend/front_end/models/bindings/bindings.js:1:55894)
+7월 12, 2022 15:50:42.762     at Le.resourceAdded (devtools://devtools/bundled/devtools-frontend/front_end/models/bindings/bindings.js:1:55155)
+7월 12, 2022 15:50:42.762     at Vn.dispatchEventToListeners (devtools://devtools/bundled/devtools-frontend/front_end/core/common/common.js:1:18605)
+7월 12, 2022 15:50:42.763     at Gn.addRequest (devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js:1:296871)
+7월 12, 2022 15:50:42.763     at Vn.onRequestFinished (devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js:1:288741)
+7월 12, 2022 15:50:42.763     at te.dispatchEventToListeners (devtools://devtools/bundled/devtools-frontend/front_end/core/common/common.js:1:18605)
+7월 12, 2022 15:50:42.763     at de.finishNetworkRequest (devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js:1:107426)
+7월 12, 2022 15:50:42.764     at de.loadingFinished (devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js:1:102916)
+7월 12, 2022 15:50:42.764     at g.dispatch (devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js:1:7341)", source: devtools://devtools/bundled/devtools-frontend/front_end/core/host/host.js (1)
+7월 12, 2022 15:50:42.812 [10456:4236:0712/155042.811:ERROR:CONSOLE(1)] "Session is unregistering, can't dispatch pending call to DOM.getDocument", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+7월 12, 2022 15:52:09.00 [1544:6492:0712/155209.000:ERROR:device_event_log_impl.cc(214)] [15:52:09.000] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 12, 2022 15:53:05.680 [1544:8580:0712/155305.679:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 12, 2022 15:55:52.613 [1544:6492:0712/155552.612:ERROR:CONSOLE(1)] "Session is unregistering, can't dispatch pending call to DOM.getDocument", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+7월 12, 2022 15:56:01.952 [556:1192:0712/155601.952:ERROR:device_event_log_impl.cc(214)] [15:56:01.952] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 12, 2022 15:56:58.958 [556:10864:0712/155658.958:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+7월 12, 2022 15:58:07.485 [9340:9064:0712/155807.485:ERROR:device_event_log_impl.cc(214)] [15:58:07.484] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 12, 2022 15:59:04.659 [9340:836:0712/155904.659:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

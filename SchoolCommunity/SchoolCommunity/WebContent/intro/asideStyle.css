@@ -21,18 +21,23 @@
 }
 
 .logout>h3 {
-	margin: 8px;
+	margin: 8px 8px 14px 8px;
+	
 }
-
+.logout > .account{
+	padding-left:20px;
+	height:70px;
+}
 .logout .account-menu>h3 {
-	margin: 5px 20px;
+	margin: 8px 20px 8px 0;
 }
 
 .logout .account-menu {
+	margin: 0 10px;
 	float: left;
 }
-
 .logout button {
+	margin-left: 20px;
 	height: 70px;
 	width: 70px;
 	float: left;

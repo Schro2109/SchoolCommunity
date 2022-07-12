@@ -34,16 +34,24 @@ ArrayList<PostCommentVO> list = dao.getPostComments(pCode);
 					<%
 						for (PostCommentVO cvo : list) {
 					%>
-					<ul><%=cvo.getCmCode()%><%=cvo.getContents()%><%=cvo.getName()%>
+					
+					<ul class="comment" style="padding: 10px;"><h5 style="margin:0;"><%=cvo.getName()%></h5>
+					<%=cvo.getCmCode()%><%=cvo.getContents()%> - [답글쓰기]
 						<%
 							ArrayList<PostReplyVO> rList = dao.getPostReply(cvo.getCmCode());
-						for (PostReplyVO rvo : rList) {
+							for (PostReplyVO rvo : rList) {
 						%>
-						<li><%=rvo.getReCode()%><%=rvo.getContents()%><%=rvo.getName()%></li>
+						<li style="margin:5px 0"><div>
+						<h5 style="margin: 0; padding-left: 20px;"><%=rvo.getName()%></h5>
+						└ <%=rvo.getReCode()%><%=rvo.getContents()%>
+						</div>
+						</li>
 						<%
 							}
 						%>
+						<li><input type="text"><button>작성</button></li>
 					</ul>
+					<br>
 					<%
 						}
 					%>
