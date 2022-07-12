@@ -44,11 +44,13 @@ public class SchoolDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "SELECT X.PCODE PCODE, DECODE(pType, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') pType,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT\r\n" + 
-					"FROM (SELECT PCODE,pType,TITLE,NAME,SUGGESTION\r\n" + 
-					"FROM POST_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE)\r\n" + 
-					"WHERE ROWNUM <= 8\r\n" +
-					"GROUP BY X.PCODE,pType,TITLE,NAME,SUGGESTION\r\n" + 
+			sql = "SELECT X.PCODE PCODE, DECODE(PTYPE, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') PTYPE,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT \r\n" + 
+					"FROM (SELECT PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
+					"FROM (SELECT X.PCODE PCODE,PTYPE,WRITER,TITLE,COUNT(ID) SUGGESTION\r\n" + 
+					"FROM POST_TBL X LEFT OUTER JOIN SUGGESTION_TBL Y ON (X.PCODE=Y.PCODE)\r\n" + 
+					"GROUP BY X.PCODE,PTYPE,WRITER,TITLE) LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID)) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE) \r\n" + 
+					"WHERE ROWNUM <= 8\r\n" + 
+					"GROUP BY X.PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
 					"ORDER BY SUGGESTION DESC";
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
@@ -75,11 +77,13 @@ ArrayList<HomePostsVO> list = null;
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "SELECT X.PCODE PCODE, DECODE(pType, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') pType,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT\r\n" + 
-					"FROM (SELECT PCODE,pType,TITLE,NAME,SUGGESTION\r\n" + 
-					"FROM POST_TBL LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID) WHERE pType=?) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE)\r\n" + 
-					"WHERE ROWNUM <= 8\r\n" +
-					"GROUP BY X.PCODE,pType,TITLE,NAME,SUGGESTION\r\n" + 
+			sql = "SELECT X.PCODE PCODE, DECODE(PTYPE, 'NEWS','공지사항','FREE','자유게시판','QUES','Q&A') PTYPE,TITLE,NAME,SUGGESTION,COUNT(Y.CMCODE) COMMENTCOUNT \r\n" + 
+					"FROM (SELECT PCODE,PTYPE,TITLE,NAME,SUGGESTION\r\n" + 
+					"FROM (SELECT X.PCODE PCODE,PTYPE,WRITER,TITLE,COUNT(ID) SUGGESTION\r\n" + 
+					"FROM POST_TBL X LEFT OUTER JOIN SUGGESTION_TBL Y ON (X.PCODE=Y.PCODE)\r\n" + 
+					"GROUP BY X.PCODE,PTYPE,WRITER,TITLE) LEFT OUTER JOIN ACCOUNT_TBL ON(WRITER=ID) WHERE PTYPE=?) X LEFT OUTER JOIN COMMENT_TBL Y ON(X.PCODE=Y.PCODE) \r\n" + 
+					"WHERE ROWNUM <= 8\r\n" + 
+					"GROUP BY X.PCODE,PTYPE,TITLE,NAME,SUGGESTION \r\n" + 
 					"ORDER BY PCODE DESC";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, pType);
@@ -88,10 +92,10 @@ ArrayList<HomePostsVO> list = null;
 			while(rs.next()) {
 				HomePostsVO vo = new HomePostsVO();
 				vo.setpCode(rs.getInt("PCODE"));
-				vo.setpType(rs.getString("pType"));
+				vo.setpType(rs.getString("PTYPE"));
 				vo.setTitle(rs.getString("TITLE"));
 				vo.setName(rs.getString("NAME"));
-				vo.setSuggestion(rs.getString("SUGGESTION"));
+				vo.setSuggestion(String.valueOf(rs.getInt("SUGGESTION")));
 				vo.setCommentCount(rs.getString("COMMENTCOUNT"));
 				list.add(vo);
 			}

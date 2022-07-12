@@ -1,5 +1,5 @@
 INDEX VERSION 1.131
-C:\Git\SchoolCommunity\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1445705997.index
+C:\git\SchoolCommunity\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1445705997.index
 \SchoolCommunity\src
-C:\Git\SchoolCommunity\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3113343151.index
+C:\git\SchoolCommunity\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3113343151.index
 \SchoolCommunity\src

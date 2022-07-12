@@ -52,7 +52,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
-							<%
+							 <%
 								for (HomePostsVO vo : freePostsList) {
 							%>
 							<li><span id="pType"><%=vo.getpType()%></span><span
@@ -62,7 +62,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 								id="commentCount"><%=vo.getCommentCount()%></span></li>
 							<%
 								}
-							%>
+							%> 
 						</ul>
 					</div>
 				</div>
@@ -75,7 +75,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
-							<%
+							 <%
 								for (HomePostsVO vo : newsPostsList) {
 							%>
 							<li><span id="pType"><%=vo.getpType()%></span><span
@@ -85,7 +85,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 								id="commentCount"><%=vo.getCommentCount()%></span></li>
 							<%
 								}
-							%>
+							%> 
 						</ul>
 					</div>
 					<div class="qna">
@@ -96,7 +96,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 							<li class="division"><span id="pType">게시판</span><span
 								id="title">제목</span><span id="writer">작성자</span><span
 								id="suggestion">추천</span><span id="commentCount">댓글</span></li>
-							<%
+							 <%
 								for (HomePostsVO vo : quesPostsList) {
 							%>
 							<li><span id="pType"><%=vo.getpType()%></span><span
@@ -106,7 +106,7 @@ ArrayList<HomePostsVO> quesPostsList = dao.getHomePosts("QUES");
 								id="commentCount"><%=vo.getCommentCount()%></span></li>
 							<%
 								}
-							%>
+							%> 
 						</ul>
 					</div>
 				</div>
